@@ -8,6 +8,5 @@ spring:
     
 server:
   port: ${vcap.application.port:8002}
-------
 
 #### java -jar -Dspring.profiles.active=nombre solution-0.0.1-SNAPSHOT.jar
