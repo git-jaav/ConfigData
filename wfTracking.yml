@@ -13,7 +13,7 @@
 ####Relacionado al despliegue
 ###########################################
 server:
-  port: ${vcap.application.port:8078}
+  port: ${vcap.application.port:8076}
 
 
 
