@@ -2,6 +2,9 @@
 ####Relacionado al despliegue
 ###########################################
 
+spring: 
+  profiles: default
+  
 server:
   port: ${vcap.application.port:8002}
 
