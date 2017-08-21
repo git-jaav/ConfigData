@@ -1,11 +1,56 @@
 ###########################################
 ####Relacionado al despliegue
 ###########################################
-
-spring: 
-  profiles: default
+#spring: 
+  #profiles: default  
+#server:
+  #port: ${vcap.application.port:8002}
   
-server:
-  port: ${vcap.application.port:8002}
-
+  
 #### java -jar -Dspring.profiles.active=nombre solution-0.0.1-SNAPSHOT.jar
+
+###########################################
+####Relacionado al despliegue
+###########################################
+server:
+  port: ${vcap.application.port:8078}
+
+
+
+###########################################
+###Relacionado a Spring - Hibernate y admin
+###########################################
+spring:
+  application:
+    name: wfTracking
+
+
+  aop:
+    proxy-target-class: false
+
+  profiles: default
+
+  production:
+    active: false
+
+#Info DB    
+  datasource:
+    driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://10.10.2.2;databaseName=WEB_WF_TRACKING
+    username: local
+    password: local2017
+     
+#Info Persistencia JPA y Hibernate                      
+  jpa:    
+    properties:
+      hibernate:                             
+        current_session_context_class: org.springframework.orm.hibernate4.SpringSessionContext
+        naming_strategy:  org.hibernate.cfg.DefaultNamingStrategy
+        #naming-strategy:  org.hibernate.cfg.ImprovedNamingStrategy        
+        dialect: org.hibernate.dialect.SQLServer2008Dialect
+        show_sql: true
+        format_sql: true          
+        packagesToScan : pe.royalsystems.springerp.model
+        
+        
+        
