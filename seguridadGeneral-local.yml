@@ -6,12 +6,12 @@ server:
 ###Relacionado a Spring - Hibernate
 
 spring:
-
+  profiles: default
   aop:
     proxy-target-class: false
     
-  #production:
-    #active: false
+  production:
+    active: false
     
   datasource:
     driverClassName: com.mysql.jdbc.Driver
