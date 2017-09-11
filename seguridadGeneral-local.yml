@@ -6,7 +6,7 @@ server:
 ###Relacionado a Spring - Hibernate
 
 spring:
-  profiles: default
+  profiles: local
   aop:
     proxy-target-class: false
     
