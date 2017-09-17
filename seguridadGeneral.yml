@@ -1,17 +1,28 @@
-###Relacionado al despliegue
+#######################################################
+#########################CONFIG GENERAL################
+#######################################################
 
-server:
-  port: ${vcap.application.port:8077}
 
+###########################################
+####Relacionado al Discovery Service
+###########################################
+eureka:
+  #Esta config puede estar controlada por CONFIG SERVER
+  client:  
+      serviceUrl:
+        defaultZone:  http://localhost:8002/eureka/  
+  instance:
+    instanceId: ${spring.cloud.client.hostname}:${spring.application.name}:${spring.application.instance_id:${random.value}}
+
+
+###########################################
 ###Relacionado a Spring - Hibernate
+###########################################
 
 spring:
-
   aop:
     proxy-target-class: false
-
-  profiles: local
-  
+    
   production:
     active: false
     
@@ -20,9 +31,7 @@ spring:
     url: jdbc:mysql://localhost:3306/pyme_erp_seguridad
     username: root
     password: 1234
-     
-                      
-
+                           
   jpa:    
     properties:
       hibernate:                             
@@ -33,6 +42,19 @@ spring:
         show_sql: true
         format_sql: true          
         packagesToScan: pe.jaav.sistemas.seguridadgeneral.model
-        
-        
-        
+
+
+#######################################################
+######################CONFIG POR PROFIES###############
+#######################################################
+---
+server:
+  port: ${vcap.application.port:8073}        
+spring:
+  profiles: dev
+    
+---
+server:
+  port: ${vcap.application.port:8074}        
+spring:
+  profiles: local
