@@ -1,0 +1,27 @@
+---
+###Relacionado al Discovery Service
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8002/eureka/
+      
+# This default profile is used when running a single instance completely standalone:
+spring:
+  profiles: default
+server:
+  port: 8000
+
+# Allow thymeleaf template changes to reload:
+spring.thymeleaf.cache: false
+
+# Zuul-proxied services can be found by calling /services/subject, /services/verb, etc.
+zuul:
+  prefix: /api
+  
+  routes:
+    seguridadGeneral:      
+      url: http://localhost:8073
