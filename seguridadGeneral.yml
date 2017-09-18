@@ -48,13 +48,20 @@ spring:
 ######################CONFIG POR PROFIES###############
 #######################################################
 ---
-server:
-  port: ${vcap.application.port:8073}        
 spring:
   profiles: dev
+  application:
+    name: seguridadGeneral
+server:
+  port: ${vcap.application.port:8073}        
+
+  
     
 ---
-server:
-  port: ${vcap.application.port:8074}        
 spring:
   profiles: local
+  application:
+    name: seguridadLocal
+server:
+  port: ${vcap.application.port:8074}        
+  
