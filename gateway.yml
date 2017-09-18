@@ -18,10 +18,11 @@ server:
 # Allow thymeleaf template changes to reload:
 spring.thymeleaf.cache: false
 
-# Zuul-proxied services can be found by calling /services/subject, /services/verb, etc.
+#zuul: los servicios pueden ser antecedidos por este prefijo
 zuul:
   prefix: /api
   
-  routes:
-    seguridadGeneral:      
-      url: http://localhost:8073
+#  routes:
+#    seguridadGeneral:      
+#      url: http://localhost:8073
+
