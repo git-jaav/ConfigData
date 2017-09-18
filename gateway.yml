@@ -21,8 +21,9 @@ spring.thymeleaf.cache: false
 #zuul: los servicios pueden ser antecedidos por este prefijo
 zuul:
   prefix: /api
-  
-#  routes:
-#    seguridadGeneral:      
-#      url: http://localhost:8073
+  ignored-services: seguridadLocal        
+  routes:
+    seguridadGeneral:      
+      path: /seguridad-service/**
+      url: http://localhost:8073
 
