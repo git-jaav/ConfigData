@@ -25,5 +25,7 @@ zuul:
   routes:
     seguridadGeneral:      
       path: /seguridad-service/**
-      url: http://localhost:8073
+      ##Verificar URLs (pruebas)
+      #url: http://localhost:8073
+      url: http://192.168.1.117:8073
 
