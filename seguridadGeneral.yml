@@ -55,7 +55,7 @@ spring:
     name: seguridadGeneral
 server:
   port: ${vcap.application.port:8073}        
-  --port: ${PORT:${SERVER_PORT:0}}   # Seleccionar cualquier puerto disponible si no se especifica
+  #port: ${PORT:${SERVER_PORT:0}}   # Seleccionar cualquier puerto disponible si no se especifica
 
   
     
